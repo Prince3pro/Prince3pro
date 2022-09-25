@@ -7,6 +7,7 @@
 <li><a href="https://mobile.twitter.com/Prince58723240">twitter</a></li>
 
 - 🙂 Simple Boy 
+- From Giridih , Jharkhand 
 <!---
 Prince3pro/Prince3pro is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 You can click the Preview link to take a look at your changes.
