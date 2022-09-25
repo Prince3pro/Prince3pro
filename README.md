@@ -4,19 +4,21 @@
 - 💞️ I’m looking to collaborate on Github
 -<!-- Actual text -->
 
-You can find me on [![Twitter][1.2]][1], or on [![Instagram][3.2]][3].
+You can find me on 
+[![Twitter Badge](https://img.shields.io/badge/Twitter-Profile-informational?style=flat&logo=twitter&logoColor=white&color=1CA2F1)](https://twitter.com/Prince58723240)
+[![Instagram Badge] (https://user-images.githubusercontent.com/99083756/192153733-4e0f4a6e-eebc-4447-a577-67ea1991720a.png)](https://instagram.com/_prince_1743)
 
-<!-- Icons -->
 
-[1.2]: http://i.imgur.com/wWzX9uB.png (twitter icon without padding)
-[3.2]: https://pin.it/1TWaQyP (instagram icon without padding)
 
-<!-- Links to your social media accounts -->
 
-[1]: https://twitter.com/prince58723240
-[2]: https://www.instagram.com/_prince_1743/
 
-- 🙂 Simple Boy 
+
+
+
+
+
+
+- 🙂Simple Boy 
 - From Giridih , Jharkhand 
 <!---
 Prince3pro/Prince3pro is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
