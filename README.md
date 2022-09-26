@@ -6,8 +6,8 @@
 
 You can find me on 
 [![Twitter Badge](https://img.shields.io/badge/Twitter-Profile-informational?style=flat&logo=twitter&logoColor=white&color=1CA2F1)](https://twitter.com/Prince58723240)
-[![Instagram Badge] https://img.shields.io/badge/Instagram-Profile-informational?style=flat&logo=instagram&logoColor=white&color=1CA2F1]
-(https://instagram.com/_prince_1743)
+[![Instagram Badge](https://img.shields.io/badge/Instagram-Profile-informational?style=flat&logo=instagram&logoColor=white&color=1CA2F1)
+
 
 
 
