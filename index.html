@@ -1,218 +1,812 @@
-
+<!-- Created by Amardeep kesharwani -->
 
 <!DOCTYPE html>
-
-<html lang="en">
-
-
+<html>
 <head>
-
-  <meta charset="UTF-8">
-
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
-  <title>Tailwind Profile Card Template : Tailwind Toolbox</title>
-
-  <meta name="description" content="Links to different platforms">
-
-  <meta name="keywords" content="">
-
-  <meta name="author" content="Prince kumar">
-
-
-  <!-- Font Awesome if you need it
-
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
-
-  -->
-
-  <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css"/> 
-
-  <!--Replace with your tailwind.css once created-->
-
-
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="author" content="amardeep kesharwani"/>
+<title>Invoicing | React App</title>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.4.2/react.js"></script>
+ 
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.4.2/react-dom.js"></script>
+ 
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.21.1/babel.min.js"></script>
+ <style>
+ /*************************
+     amardeep kesharwani
+ ***************************/
+ *{
+ margin:0;
+ padding:0;
+ box-sizing:border-box;
+ }
+ body {
+ font-family:sans-serif;
+ font-weight:400;
+ line-height:1.2;
+ font-size:16px;
+ color:#3d3d3d;
+ }
+ a,a:hover {
+ text-decoration:none;
+ }
+ .container {
+ width:100%;
+ padding:0 5%;
+ }
+ .row{
+ display:flex;
+ flex-wrap:wrap;
+ width:100%;
+ }
+ 
+ .center{
+ text-align:center;
+ }
+ .title {
+ margin:40px 0 40px;
+ }
+ .title h1{
+ color:#fa3c3c;
+ margin-bottom:5px;
+ }
+ .title p{
+ font-weight:bold;
+ margin:5px 0;
+ }
+ .w100{
+ width:100%;
+ }
+ .w50{
+ width:50%;
+ }
+ .w25{
+ width:25%;
+ }
+ .w30{
+ width:30%;
+ }
+ 
+ .w20{
+ width:20%;
+ }
+ .w8{
+ width:8%;
+ }
+ .w6{
+ width:6%;
+ }
+ .row > div{
+ border:1px solid #333;
+ }
+ .nb div{
+ border:0px;
+ border-bottom:1px solid #333;
+ }
+ 
+ .bl{
+ border-right:1px solid #333! important;
+ }
+ .bbn{
+ border-bottom:0px!important;
+ }
+ .p5{
+ padding:5px;
+ }
+ .p8{
+ padding:8px;
+ }
+ .h100 div{
+ min-height:200px;
+ }
+ .m5{
+ margin-top:5px;
+ }
+ .sin {
+ font-family:cursive;
+ margin:3px 0;
+ transform:rotate(-5deg) translateY(12px);
+ }
+ .right{
+ text-align:right;
+ }
+ .f14{
+ font-size:14px!important;
+ } 
+ .dn{
+ display:none;
+ }
+ form{
+ width:100%;
+ }
+ .form-group{
+ margin-bottom:20px;
+ }
+ .form-group label {
+ display:block;
+ margin:10px 0;
+ font-size:15px;
+ color:#555;
+ text-transform:uppercase;
+ }
+ .form-group input ,
+ .form-group select,
+ .form-group textarea {
+ display:block;
+ width:100%;
+ outline:none;
+ border:none;
+ background:#fff;
+ padding:10px 20px;
+ box-shadow:0 0 3px rgba(0,0,0,0.2);
+ }
+ textarea {
+ resize:none;
+ height:70px;
+ font-family:sans-serif;
+ }
+ .error{
+  display: block;
+ color:#f00;
+ font-size:14px;
+ font-weight:bold;
+ letter-spacing:1px;
+ margin:5px 0 15px;
+ }
+ .btn{
+ display:inline-block;
+ padding: 10px 20px;
+ background:#000;
+ color:#fff;
+ outline:none;
+ border:none;
+ border-radius:4px;
+ margin-right:20px;
+ font-size:16px;
+ letter-spacing:1px;
+ }
+ .print{
+  display:inline-block;
+  position:absolute;
+  top:0;
+  right:0;
+  outline:none;
+  border:none;
+  padding:8px 16px;
+  background:#fa3c3c;
+  color:#fff;
+  z-index:5;
+  cursor:pointer;
+ }
+ .top-title{
+ padding-bottom:30px;
+ margin-bottom:40px;
+ border-bottom:1px solid #999;
+ }
+ .mw-1000{
+ max-width:1000px;
+ margin:auto;
+ margin-bottom:50px;
+ }
+ .my{
+ margin:30px 0 ;
+ margin-right:20px;
+ }
+ .info{
+ font-weight:bold;
+ font-size:12px;
+ display:block;
+ margin:8px 0;
+ text-transform:uppercase;
+ letter-spacing:1px;
+ }
+ .preloader {
+ position:fixed;
+ top:0;
+ left:0;
+ height:100vh;
+ width:100%;
+ display:flex;
+ justify-content: center;
+ align-items: center;
+ background:rgba(254,255,255,0.6);
+ z-index:9;
+ }
+ .preloader svg{
+ position:relative;
+ height:70px;
+ width:70px;
+ animation: rotate 2s linear infinite;
+ }
+ .preloader svg circle{
+ width:100%;
+ height:100%;
+ fill:none;
+ stroke-width:5px;
+ stroke:#fa3c3c;
+ stroke-linecap: round;
+ transform:translate(5px, 5px);
+ stroke-dasharray:200;
+ stroke-dashoffset:200;
+ animation:rotated 4s linear infinite;
+ }
+ @keyframes rotate{
+ 0%{
+ transform:rotate(0deg);
+ }
+ 100%{
+ transform:rotate(360deg);
+ }
+ }
+ @keyframes rotated{
+ 0%,100%{
+ stroke-dashoffset:200;
+ }
+ 50%{
+ stroke-dashoffset:0;
+ }
+ 50.1%{
+ stroke-dashoffset:400;
+ }
+ }
+ @media print and (max-width:2000px){
+  .print,
+  .title,
+  .info,
+  .btn{
+   display:none;
+  }
+ }
+ @media screen and (max-width:520px){
+  .row{
+   font-size:8px;
+  }
+ }
+ @media screen and (max-width:720px){
+  .row{
+   font-size:12px;
+  }
+ }
+ </style>   
 </head>
+<body>
+<div id="root"></div>
 
+<!-- scripts -->
+<script type="text/babel">
+ const root = document.getElementById("root");
+ const {Component} = React;
+ const { log } = console;
+ //-----------------------//
+ //    React Component    //
+ //-----------------------//
+ function Preloader(props){
+  return(
+   <div className="preloader">
+    <svg>
+    <circle cx="30" cy="30" r="30">
+    </circle>
+    </svg>
+   </div>
+  )
+ }
+ <br/>
+ class InputForm extends Component{
+  render(){
+   const { data } = this.props;
+   const { handleChange } = this.props;
+   return(
+    <section className="container mw-1000 ">
+    <div className="title center top-title">
+    <h1>INVOICING</h1>
+    <p>sales invoice Or bill generator web application</p>
+    </div>
+    <form onSubmit={this.props.handleSubmit}>
+    <div className="form-group" >
+    <label>Buyer's Name*</label>
+    <input 
+    type="text" 
+    name="buyer" 
+    value={data.buyer}
+    onChange={handleChange}
+    />
+    </div>
+    <div className="form-group">
+    <label>Buyer address</label>
+    <textarea 
+    name="address" 
+    value={data.address}
+    onChange={handleChange}
+    >
+    </textarea>
+    </div>
+    <div className="form-group">
+    <label>Select State*</label>
+    <select 
+    value={data.state}
+    name="state"
+    onChange={handleChange}>
+    <option value="">select state</option>
+    <option value="local" >Local State</option>
+    <option value="inter" >Inter State</option> 
+    </select> 
+    </div>
+    <div className="form-group" >
+    <label>Product*</label>
+    <input 
+    type="text" 
+    name="product" 
+    value={data.product}
+    onChange={handleChange}
+    />
+    </div>
+    <div className="form-group" >
+    <label>HSN/SAC Code</label>
+    <input 
+    type="text" 
+    name="hsn" 
+    value={data.hsn}
+    onChange={handleChange}
+    />
+    </div>
+    <div className="form-group" >
+    <label>Product Rate*</label>
+    <input 
+    type="Number" 
+    name="productRate" 
+    value={data.productRate}
+    onChange={handleChange}
+    />
+    </div>
+    <div className="form-group" >
+    <label>Quality*</label>
+    <input 
+    type="number" 
+    name="quality" 
+    value={data.quality}
+    onChange={handleChange}
+    />
+    </div>
+    <div className="form-group" >
+    <label>payment type</label>
+    <select 
+    name="payType" 
+    value={data.payType}
+    onChange={handleChange}>
+    <option value="Cash" >Cash</option>
+    <option value="Bank" >Bank</option> 
+    <option value="Credit" >Credit</option>
+    </select>
+    </div>
+    <div className="form-group" >
+    <label>Tex Type</label>
+    <select
+     name="texType"
+     value={data.texType}
+     onChange={handleChange}>
+    <option value="" >Nill</option>
+    <option value="1" >GST</option> 
+    <option value="2" disabled>vat</option>
+    </select>
+    </div>
+    <div className="form-group" >
+    <label>15 Character, GST No </label>
+    <input 
+    type="text" 
+    name="gstno" 
+    value={data.gstno}
+    onChange={handleChange}
+    />
+    </div>
+    <div className="form-group" >
+    <label>GST Rate </label>
+    <select 
+     name="gstRate" 
+     value={data.gstRate}
+     onChange={handleChange}>
+    <option value="" >0%</option>
+    <option value="5">5%</option>
+    <option value="8">8%</option>
+    <option value="12" >12%</option>
+    <option value="18" >18%</option>
+    </select>
+    </div>
+    <div className="form-group" >
+    <span className="error">{data.error}</span>
+    <button type="submit" className="btn" >Generator</button>
+    </div>
+    </form>
+    {data.showLoader ? <Preloader/> : null }
+    </section>
+   );
+  }
+ }
+ <br/>
+ 
+ class Invoice extends Component{
+  printScreen(){
+   window.print();
+   alert("print btn working is web browser")
+  }
+  render(){
+   const { data } = this.props;
+   const invoiceNo = Math.floor(Math.random() * 100);
+   
+   let date = new Date();
+   let day = date.getDate();
+   let month = date.getMonth() +1;
+   let yr = date.getFullYear();
+   let today = day+'/'+month+'/'+yr;
+   
+   
+   const rate = +data.productRate;
+   const quality = +data.quality;
+   const total = rate * quality;
+   const gstRate = +data.gstRate;
+   
+   let sGst = null;
+   let cGst = null;
+   let iGst = null;
+   let hSgst = null;
+   let hCgst = null;
+   let hIgst = null;
+   let grendTotal = total;
+   
+  if(data.gstRate.length){
+   if(data.state === 'local'){
+    let haf = gstRate / 2;
+     hSgst = haf+'%';
+     hCgst = haf+'%';
+    sGst = total * haf /100;
+    cGst = total * haf /100;
+   }else if(data.state === 'inter'){
+    hIgst = gstRate+'%';
+    iGst = total * gstRate / 100;
+   }
+   grendTotal = total + sGst + cGst + iGst;
+  }
+   return(
+    <section className="container ">
+    <div className="title center">
+    <h1>Shri Ram Watch Mobile & Gift Center</h1>
+    <p>Nsb Road Ukhra, Andal </p>
+    <p>Contact : +917001655429</p>
+    </div>
+    <span className="info" >Desktop screen Ui</span>
+    <div className="row">
+    <div className="w100 center p8">
+    <h3>SALE INVOICE</h3>
+    </div>
+    <div className="w50 p5" >
+    <h3>Shri Ram Watch Mobile & Gift Center</h3>
+    <p>Sales & Service</p>
+    <p>Nsb Road Ukhra, Andal</p>
+    <p>West Bengal, India</p>
+    </div>
+    <div className="w50">
+    <div className="row nb">
+    <div className="w50 bl p5" >
+    <p> Invoice No: {invoiceNo}</p>
+    </div>
+    <div className="w50 p5" >
+    <p>Date: 1st August 2024</p>
+    </div>
+    <div className="w50 bl p5" >
+    <p>Delivery Note </p>
+    </div>
+    <div className="w50 p5" >
+    <p>Payment type : <span>{data.payType}</span></p>
+    </div>
+    <div className="w50 bl p5 bbn" >
+    <p> Supplier's Ref. </p>
+    </div>
+    <div className="w50 p5 bbn" >
+    <p>Other Reference.</p>
+    </div>
+    </div>
+    </div>
+    <div className="w50 p5" >
+    <p><b>Buyer</b></p>
+    <h3>{data.buyer}</h3>
+    <p>{data.address}</p>
+    <p>India</p>
 
-<body class="font-sans antialiased text-gray-900 leading-normal tracking-wider bg-cover" style="background-image:url('https://source.unsplash.com/1L71sPT5XKc');">
-
-
-
-
-  <div class="max-w-4xl flex items-center h-auto lg:h-screen flex-wrap mx-auto my-32 lg:my-0">
-
-    
-
-    <!--Main Col-->
-
-    <div id="profile" class="w-full lg:w-3/5 rounded-lg lg:rounded-l-lg lg:rounded-r-none shadow-2xl bg-white opacity-75 mx-6 lg:mx-0">
-
+    <p>Place Of Supply : {data.state} State</p>
+    </div>
+    <div className="w50">
+    <div className="row nb">
+    <div className="w50 bl p5" >
+    <p>Buyer's Order No </p>
+    </div>
+    <div className="w50 p5" >
+    <p>Order Date</p>
+    </div>
+    <div className="w50 bl p5" >
+    <p>Despatch Documents No</p>
+    </div>
+    <div className="w50 p5" >
+    <p>Delivery Note Date</p>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div className="row">
+    <div className="w30 p5" >
+    Description
+    </div>
+    <div className="w8 p5">
+    HSN/SAC
+    </div>
+    <div className="w8 p5" >
+    Quality
+    </div>
+    <div className="w6 p5" >
+    Unit
+    </div>
+    <div className="w8 p5" >
+    Rate
+    </div>
+    <div className="w8 p5">
+    value
+    </div>
     
-
-
-        <div class="p-4 md:p-12 text-center lg:text-left">
-
-            <!-- Image for mobile view-->
-
-            <div class="block lg:hidden rounded-full shadow-xl mx-auto -mt-16 h-48 w-48 bg-cover bg-center" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Prince334321.jpg/240px-Prince334321.jpg')"></div>
-
-            
-
-            <h1 class="text-3xl font-bold pt-8 lg:pt-0">Prince kumar</h1>
-
-            <div class="mx-auto lg:mx-0 w-4/5 pt-3 border-b-2 border-green-500 opacity-25"></div>
-
-            <p class="pt-4 text-base font-bold flex items-center justify-center lg:justify-start"><svg class="h-4 fill-current text-green-700 pr-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9 12H1v6a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-6h-8v2H9v-2zm0-1H0V5c0-1.1.9-2 2-2h4V2a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v1h4a2 2 0 0 1 2 2v6h-9V9H9v2zm3-8V2H8v1h4z"/></svg> What you do</p>
-
-            <p class="pt-2 text-gray-600 text-xs lg:text-sm flex items-center justify-center lg:justify-start"><svg class="h-4 fill-current text-green-700 pr-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 20a10 10 0 1 1 0-20 10 10 0 0 1 0 20zm7.75-8a8.01 8.01 0 0 0 0-4h-3.82a28.81 28.81 0 0 1 0 4h3.82zm-.82 2h-3.22a14.44 14.44 0 0 1-.95 3.51A8.03 8.03 0 0 0 16.93 14zm-8.85-2h3.84a24.61 24.61 0 0 0 0-4H8.08a24.61 24.61 0 0 0 0 4zm.25 2c.41 2.4 1.13 4 1.67 4s1.26-1.6 1.67-4H8.33zm-6.08-2h3.82a28.81 28.81 0 0 1 0-4H2.25a8.01 8.01 0 0 0 0 4zm.82 2a8.03 8.03 0 0 0 4.17 3.51c-.42-.96-.74-2.16-.95-3.51H3.07zm13.86-8a8.03 8.03 0 0 0-4.17-3.51c.42.96.74 2.16.95 3.51h3.22zm-8.6 0h3.34c-.41-2.4-1.13-4-1.67-4S8.74 3.6 8.33 6zM3.07 6h3.22c.2-1.35.53-2.55.95-3.51A8.03 8.03 0 0 0 3.07 6z"/></svg> Your Location - 25.0000° N, 71.0000° W</p>
-
-            <p class="pt-8 text-sm">Totally optional short description about yourself, what you do and so on.</p>
-
-
-            <div class="pt-12 pb-8">
-
-                <button class="bg-green-700 hover:bg-green-900 text-white font-bold py-2 px-4 rounded-full">
-
-                  Get In Touch
-
-                </button> 
-
-            </div>
-
-
-            <div class="mt-6 pb-16 lg:pb-0 w-4/5 lg:w-full mx-auto flex flex-wrap items-center justify-between">
-
-                <a class="link" href="#" data-tippy-content="@_prince_1743"><svg class="h-6 fill-current text-gray-600 hover:text-green-700" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Facebook</title><path d="M22.676 0H1.324C.593 0 0 .593 0 1.324v21.352C0 23.408.593 24 1.324 24h11.494v-9.294H9.689v-3.621h3.129V8.41c0-3.099 1.894-4.785 4.659-4.785 1.325 0 2.464.097 2.796.141v3.24h-1.921c-1.5 0-1.792.721-1.792 1.771v2.311h3.584l-.465 3.63H16.56V24h6.115c.733 0 1.325-.592 1.325-1.324V1.324C24 .593 23.408 0 22.676 0"/></svg></a>
-
-                <a class="link" href="#" data-tippy-content="@prince58723240"><svg class="h-6 fill-current text-gray-600 hover:text-green-700" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Twitter</title><path d="M23.954 4.569c-.885.389-1.83.654-2.825.775 1.014-.611 1.794-1.574 2.163-2.723-.951.555-2.005.959-3.127 1.184-.896-.959-2.173-1.559-3.591-1.559-2.717 0-4.92 2.203-4.92 4.917 0 .39.045.765.127 1.124C7.691 8.094 4.066 6.13 1.64 3.161c-.427.722-.666 1.561-.666 2.475 0 1.71.87 3.213 2.188 4.096-.807-.026-1.566-.248-2.228-.616v.061c0 2.385 1.693 4.374 3.946 4.827-.413.111-.849.171-1.296.171-.314 0-.615-.03-.916-.086.631 1.953 2.445 3.377 4.604 3.417-1.68 1.319-3.809 2.105-6.102 2.105-.39 0-.779-.023-1.17-.067 2.189 1.394 4.768 2.209 7.557 2.209 9.054 0 13.999-7.496 13.999-13.986 0-.209 0-.42-.015-.63.961-.689 1.8-1.56 2.46-2.548l-.047-.02z"/></svg></a>
-
-                <a class="link" href="#" data-tippy-content="@prince3pro"><svg class="h-6 fill-current text-gray-600 hover:text-green-700" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>GitHub</title><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a>
-
-                <a class="link" href="#" data-tippy-content="@unsplash_handle"><svg class="h-6 fill-current text-gray-600 hover:text-green-700" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Unsplash</title><path d="M7.5 6.75V0h9v6.75h-9zm9 3.75H24V24H0V10.5h7.5v6.75h9V10.5z"/></svg></a>
-
-                <a class="link" href="#" data-tippy-content="@dribble_handle"><svg class="h-6 fill-current text-gray-600 hover:text-green-700" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Dribbble</title><path d="M12 24C5.385 24 0 18.615 0 12S5.385 0 12 0s12 5.385 12 12-5.385 12-12 12zm10.12-10.358c-.35-.11-3.17-.953-6.384-.438 1.34 3.684 1.887 6.684 1.992 7.308 2.3-1.555 3.936-4.02 4.395-6.87zm-6.115 7.808c-.153-.9-.75-4.032-2.19-7.77l-.066.02c-5.79 2.015-7.86 6.025-8.04 6.4 1.73 1.358 3.92 2.166 6.29 2.166 1.42 0 2.77-.29 4-.814zm-11.62-2.58c.232-.4 3.045-5.055 8.332-6.765.135-.045.27-.084.405-.12-.26-.585-.54-1.167-.832-1.74C7.17 11.775 2.206 11.71 1.756 11.7l-.004.312c0 2.633.998 5.037 2.634 6.855zm-2.42-8.955c.46.008 4.683.026 9.477-1.248-1.698-3.018-3.53-5.558-3.8-5.928-2.868 1.35-5.01 3.99-5.676 7.17zM9.6 2.052c.282.38 2.145 2.914 3.822 6 3.645-1.365 5.19-3.44 5.373-3.702-1.81-1.61-4.19-2.586-6.795-2.586-.825 0-1.63.1-2.4.285zm10.335 3.483c-.218.29-1.935 2.493-5.724 4.04.24.49.47.985.68 1.486.08.18.15.36.22.53 3.41-.43 6.8.26 7.14.33-.02-2.42-.88-4.64-2.31-6.38z"/></svg></a>
-
-                <a class="link" href="#" data-tippy-content="@_prince_1743"><svg class="h-6 fill-current text-gray-600 hover:text-green-700" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Instagram</title><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z"/></svg></a>
-
-                <a class="link" href="#" data-tippy-content="@prince meme"><svg class="h-6 fill-current text-gray-600 hover:text-green-700" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>YouTube</title><path d="M23.495 6.205a3.007 3.007 0 0 0-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 0 0 .527 6.205a31.247 31.247 0 0 0-.522 5.805 31.247 31.247 0 0 0 .522 5.783 3.007 3.007 0 0 0 2.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 0 0 2.088-2.088 31.247 31.247 0 0 0 .5-5.783 31.247 31.247 0 0 0-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg></a>
-
-            </div>
-
-            
-
-            <!-- Use https://simpleicons.org/ to find the svg for your preferred product --> 
-
-
-        </div>
-
+    </div>
+    <div className="row h100">
+    <div className="w30 p5" >
+     {data.product}
+    </div>
+    <div className="w8 p5">
+     {data.hsn}
+    </div>
+    <div className="w8 p5" >
+     {data.quality}
+    </div>
+    <div className="w6 p5" >
+     pc
+    </div>
+    <div className="w8 p5" >
+     {data.productRate}
+    </div>
+    <div className="w8 p5">
+     {total}
+    </div>
+    <div className="w8 p5">
+     {data.gstRate !== '' ? data.gstRate +'%' : ''} 
+    </div>
+    <div className="w8 p5">
+     {sGst}
+    </div>
+    <div className="w8 p5">
+     {cGst}
+    </div>
+    <div className="w8 p5">
+     {iGst}
+    </div>
+    </div>
+    <div className="row ">
+    <div className="w30 p5" >
+    
+    </div>
+    <div className="w8 p5">
+    
+    </div>
+    <div className="w8 p5" >
+    </div>
+    <div className="w6 p5" >
+    </div>
+    <div className="w8 p5" >
+    </div>
+    <div className="w8 p5">
+    {total}
+    </div>
+    <div className="w8 p5">
+    </div>
+    <div className="w8 p5">
+     {sGst}
+    </div>
+    <div className="w8 p5">
+     {cGst}
+    </div>
+    <div className="w8 p5">
+     {iGst}
+    </div>
+    </div>
+    <div className="row" >
+    <div className="w50 p5">
+    <h3>Description</h3>
+    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+    </p>
+    <h3 className="m5" >Teams of services</h3>
+    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+    </p>
+    </div>
+    <div className="w50">
+    <div className="row nb" >
+    <div className="w50 p5 bl" >
+    <p><b> total amount of before tex</b></p>
+    </div>
+    <div className="w20 p5 bl">
+    <p></p>
+    </div>
+    <div className="w30 p5" >
+    <p>{total}</p>
+    </div>
+    </div>
+    <div className="row nb" >
+    <div className="w50 p5 bl" >
+    <p> <b>ADD : STATE TEX</b></p>
+    </div>
+    <div className="w20 p5 bl">
+    <p>{hSgst}</p>
+    </div>
+    <div className="w30 p5" >
+    <p>{sGst}</p>
+    </div>
+    </div>
+    <div className="row nb" >
 
     </div>
-
-    
-
-    <!--Img Col-->
-
-    <div class="w-full lg:w-2/5">
-
-        <!-- Big profile image for side bar (desktop) -->
-
-        <img src="https://source.unsplash.com/MP0IUfwrn0A" class="rounded-none lg:rounded-lg shadow-2xl hidden lg:block">
-
-        <!-- Image from: http://unsplash.com/photos/MP0IUfwrn0A -->
-
-        
-
+    <div className="row nb">
+    <div className="w50 p5 bl bbn" >
+    <p><b>Total</b></p>
     </div>
+    <div className="w20 p5 bbn" >
+    <p></p>
+    </div>
+    <div className="w30 p5 bbn" >
+    <p><b>{grendTotal}</b></p>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div className="row f14" >
+    <div className="w50 p8" >
+    <p>Our Mobile No: +917001655429</p>
+    </div>
+    <div className="w50 p8 right" >
+    <p>Authorise Signature</p>
+    <p className="sin" >Rajesh modi</p>
+    </div>
+    </div>
+    <button className="btn my" onClick={this.props.handleEdit}>Edit</button>
+    <button className="btn my" onClick={this.props.backToHome} >Home</button>
+    <button className="print" onClick={() => this.printScreen()}>Print</button> 
+    </section>
+   );
+  }
+ }
+ <br/>
+ class App extends Component{
+  constructor(){
+   super();
+   const initialState = {
+    buyer:'',
+    address:'',
+    state:'',
+    product:'',
+    hsn:'',
+    productRate:'',
+    quality:'',
+    payType:'',
+    texType:'',
+    gstno:'',
+    gstRate:'',
+    error:'',
+    showBill:false,
+    notEdited:true,
+    showLoader:false
+   }
+   this.state = initialState;
+   
+   this.handleSubmit = this.handleSubmit.bind(this);
+   this.handleChange = this.handleChange.bind(this);
+   this.backToHome = this.backToHome.bind(this);
+   this.handleEdit = this.handleEdit.bind(this);
+  }
+  handleSubmit(e){
+   e.preventDefault();
+   const { buyer, address, state , product, hsn, productRate, quality, payType, texType, gstno , gstRate, error } = this.state;
+   let errors = '';
 
+    this.setState({
+    error:''
+    }) 
     
-
-    
-
-    <!-- Pin to top right corner -->
-
-      <div class="absolute top-0 right-0 h-12 w-18 p-4">
-
-        <button class="js-change-theme focus:outline-none">🌙</button>
-
-      </div>
-
-
-</div>
-
-
-    <script src="https://unpkg.com/popper.js@1/dist/umd/popper.min.js"></script>
-
-    <script src="https://unpkg.com/tippy.js@4"></script>
-
-    <script>
-
-        //Init tooltips
-
-        tippy('.link',{
-
-          placement: 'bottom'
-
-        })
-
-
-        //Toggle mode
-
-        const toggle = document.querySelector('.js-change-theme');
-
-        const body = document.querySelector('body');
-
-        const profile = document.getElementById('profile');
-
-        
-
-        
-
-        toggle.addEventListener('click', () => {
-
-
-          if (body.classList.contains('text-blue-900')) {
-
-            toggle.innerHTML = "☀️";
-
-            body.classList.remove('text-blue-900');
-
-            body.classList.add('text-blue-100');
-
-            profile.classList.remove('bg-white');
-
-            profile.classList.add('bg-blue-900');
-
-          } else
-
-          {
-
-            toggle.innerHTML = "🌙";
-
-            body.classList.remove('text-blue-100');
-
-            body.classList.add('text-blue-900');
-
-            profile.classList.remove('bg-blue-900');            
-
-            profile.classList.add('bg-white');
-
-            
-
-          }
-
-        });
-
-        
-
-    </script>
-
-    
-
+   if(buyer === ''){
+    errors = "buyer name is required";
+   }else if(state === ''){
+   errors = "select state";
+   }else if(product === ''){
+    errors ="product name is required";
+   }else if(productRate === ''){
+    errors ="product Rate is required";
+   }else if(quality === ''){
+    errors ="product quality is required";
+   }else if(texType !== ''){
+    if(gstno === ''){
+    errors ="enter GST Number";
+    }else if(gstno.length < 15){
+     errors ="invalid GST number";
+    }else if(gstRate === ''){
+     errors ="select GST rate";
+    }
+   }else if(gstRate !== ''){
+    if(texType === ''){
+    errors ="select text type";
+    }
+   }
+   if(errors.length){
+    this.setState({
+    error:errors
+    });
+    return;
+   }
+   
+   this.setState({
+    showLoader:true
+   })
+   setTimeout(function(){
+    this.setState({
+    showBill:true,
+    notEdited:true,
+    showLoader:false
+    })
+   }.bind(this),2000)
+  } 
+  handleChange(e){
+   const { name , value } = e.target;
+   this.setState({
+   [name]:value
+   });
+  }
+  backToHome(){
+   this.setState({
+    buyer:'',
+    address:'',
+    state:'',
+    product:'',
+    hsn:'',
+    productRate:'',
+    quality:'',
+    payType:'',
+    texType:'',
+    gstno:'',
+    gstRate:'',
+    error:'',
+    showBill:false,
+    notEdited:true,
+    showLoader:false
+   });
+  }
+  handleEdit(){
+   this.setState({
+    notEdited:false
+   })
+  }
+ 
+  render(){
+   return(
+    <div className="app">
+     {this.state.showBill && this.state.notEdited ? 
+     (
+      <Invoice
+       backToHome={this.backToHome}
+       handleEdit={this.handleEdit}
+       data={this.state}
+      />
+     ):(
+      <InputForm
+       handleChange={this.handleChange}
+       handleSubmit={this.handleSubmit}
+       data={this.state}
+      />
+     )}  
+    </div>
+   );
+  }
+ }
+ ReactDOM.render(<App/>,root);
+</script>
 </body>
-
-
 </html>
-
-
